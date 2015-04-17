@@ -1,0 +1,25 @@
+<%= form_for(@type_ent) do |f| %>
+  <% if @type_ent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@type_ent.errors.count, "error") %> prohibited this type_ent from being saved:</h2>
+
+      <ul>
+      <% @type_ent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :initial %><br>
+    <%= f.text_field :initial %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

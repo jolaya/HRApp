@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing S Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Staff</th>
+      <th>Hdate</th>
+      <th>Type ent</th>
+      <th>Ndays</th>
+      <th>Observation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @s_histories.each do |s_history| %>
+      <tr>
+        <td><%= s_history.staff %></td>
+        <td><%= s_history.hdate %></td>
+        <td><%= s_history.type_ent %></td>
+        <td><%= s_history.ndays %></td>
+        <td><%= s_history.observation %></td>
+        <td><%= link_to 'Show', s_history %></td>
+        <td><%= link_to 'Edit', edit_s_history_path(s_history) %></td>
+        <td><%= link_to 'Destroy', s_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New S history', new_s_history_path %>

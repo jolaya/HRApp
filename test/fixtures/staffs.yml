@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff_number: MyString
+  name: MyString
+  surname: MyString
+  job_title_id: 
+  department_id: 
+  startdate: 2015-04-17
+  finishdate: 2015-04-17
+  active: false
+
+two:
+  staff_number: MyString
+  name: MyString
+  surname: MyString
+  job_title_id: 
+  department_id: 
+  startdate: 2015-04-17
+  finishdate: 2015-04-17
+  active: false

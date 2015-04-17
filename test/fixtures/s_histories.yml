@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staff_id: 
+  hdate: 2015-04-17
+  type_ent_id: 
+  ndays: 1
+  observation: MyString
+
+two:
+  staff_id: 
+  hdate: 2015-04-17
+  type_ent_id: 
+  ndays: 1
+  observation: MyString

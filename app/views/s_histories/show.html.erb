@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @s_history.staff %>
+</p>
+
+<p>
+  <strong>Hdate:</strong>
+  <%= @s_history.hdate %>
+</p>
+
+<p>
+  <strong>Type ent:</strong>
+  <%= @s_history.type_ent %>
+</p>
+
+<p>
+  <strong>Ndays:</strong>
+  <%= @s_history.ndays %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @s_history.observation %>
+</p>
+
+<%= link_to 'Edit', edit_s_history_path(@s_history) %> |
+<%= link_to 'Back', s_histories_path %>
