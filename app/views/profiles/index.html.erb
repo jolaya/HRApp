@@ -16,8 +16,9 @@
       <tbody>
         <% @profiles.each do |profile| %>
           <tr>
-            <td><%= profile.staff %></td>
-            <td><%= profile.user %></td>
+            
+            <td><%= profile.staff.name + '.' + profile.staff.surname  %></td>
+            <td><%= profile.user.email %></td>
             <td><%= link_to 'Show', profile, class: 'btn btn-mini' %></td>
             <td><%= link_to 'Edit', edit_profile_path(profile), class: 'btn btn-mini btn-success' %></td>
             <td><%= link_to 'Destroy', profile, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>

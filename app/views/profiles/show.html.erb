@@ -2,12 +2,12 @@
 
 <p>
   <strong>Staff:</strong>
-  <%= @profile.staff %>
+  <%= @profile.staff.staff_number + ' - ' + @profile.staff.name + ',' + @profile.staff.surname %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @profile.user %>
+  <%= @profile.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

@@ -19,6 +19,7 @@ class SHistoriesController < ApplicationController
 
   # GET /s_histories/1/edit
   def edit
+    
   end
 
   # POST /s_histories
@@ -60,7 +61,7 @@ class SHistoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_s_history

@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :job_title_id %><br>
-    <%= f.text_field :job_title_id %>
+    <%= collection_select( :staff, :job_title_id, JobTitle.all, :id, :description, {}, { :multiple => false } ) %>
   </div>
   <div class="field">
-    <%= f.label :department_id %><br>
-    <%= f.text_field :department_id %>
+	  <%= f.label :department_id %><br>
+	  <%= collection_select( :staff, :department_id, Department.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
   <div class="field">
     <%= f.label :startdate %><br>
