@@ -11,8 +11,25 @@
 	<ul class="nav nav-tabs">  
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "About", welcome_about_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to "Department", departments_path %></li>
+      <li><%= link_to "Job Title", job_titles_path %></li>
+      <li><%= link_to "Entry Types", type_ents_path %></li>
+      <li><%= link_to "Staff", staffs_path %></li>
+      <li><%= link_to "Staff Entries", s_histories_path %></li>
+    <% end %>
   </ul>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
+  <% if user_signed_in? %>
+  	<div>Signed in as... <%= current_user.email %>
+  		(<%= link_to 'Sign out', destroy_user_session_path, :method => :delete%>)
+  	</div>
+  <% else %>
+  	<%= link_to 'Register', new_user_registration_path %> or
+  	<%= link_to 'Sign in', new_user_session_path %>
+  <% end %>
 </div>
 </body>
 </html>
