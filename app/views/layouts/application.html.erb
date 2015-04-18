@@ -12,11 +12,15 @@
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "About", welcome_about_path %></li>
     <% if user_signed_in? %>
-      <li><%= link_to "Department", departments_path %></li>
-      <li><%= link_to "Job Title", job_titles_path %></li>
-      <li><%= link_to "Entry Types", type_ents_path %></li>
-      <li><%= link_to "Staff", staffs_path %></li>
-      <li><%= link_to "Staff Entries", s_histories_path %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to "Department", departments_path %></li>
+        <li><%= link_to "Job Title", job_titles_path %></li>
+        <li><%= link_to "Entry Types", type_ents_path %></li>
+        <li><%= link_to "Staff", staffs_path %></li>
+        <li><%= link_to "Staff Entries", s_histories_path %></li>
+      <% else %>
+        <li><%= link_to "Staff Entries", s_histories_path %></li>
+      <% end %>
     <% end %>
   </ul>
   <p class="notice"><%= notice %></p>
