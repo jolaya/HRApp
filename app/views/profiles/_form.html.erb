@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :staff_id %><br>
-     <%= collection_select( :profile, :staff_id, Staff.all, :id, :staff_number, {}, { :multiple => false } ) %>
+     <%= collection_select( :profile, :staff_id, Staff.all, :id, :fullname, {}, { :multiple => false } ) %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>

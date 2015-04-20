@@ -13,17 +13,24 @@
 
   <div class="field">
     <%= f.label :staff_id %><br>
-  
-    <%= collection_select( :s_history, :staff_id, Staff.all, :id, :staff_number, {}, { :multiple => false } ) %>
-    
+    <% if current_user.admin? %>
+      <%= collection_select( :s_history, :staff_id, Staff.all, :id, :fullname, {}, { :multiple => false}) %>
+    <% else %>
+      <%= collection_select( :s_history, :staff_id, Staff.where(:id => (Profile.where(:user_id => current_user.id))), :id, :fullname, {}, { :multiple => false}) %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :hdate %><br>
+    <%= f.label :"Date" %><br>
     <%= f.date_select :hdate %>
   </div>
   <div class="field">
     <%= f.label :type_ent_id %><br>
-    <%= collection_select( :s_history, :type_ent_id, TypeEnt.all, :id, :description, {}, { :multiple => false } ) %>
+    <% if current_user.admin? %>
+      <%= collection_select( :s_history, :type_ent_id, TypeEnt.all, :id, :description, {}, { :multiple => false }) %>
+    <% else %>
+     <%= collection_select( :s_history, :type_ent_id, TypeEnt.where(:description => "Annual Leave"), :id, :description, {}, { :multiple => false  }) %>
+    <% end %>
+    
   </div>
   <div class="field">
     <%= f.label :ndays %><br>
@@ -34,6 +41,6 @@
     <%= f.text_field :observation %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Entry' %>
   </div>
 <% end %>

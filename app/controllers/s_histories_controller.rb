@@ -1,10 +1,16 @@
 class SHistoriesController < ApplicationController
   before_action :set_s_history, only: [:show, :edit, :update, :destroy]
-
   # GET /s_histories
   # GET /s_histories.json
   def index
-    @s_histories = SHistory.all
+      if current_user.admin? 
+        @s_histories = SHistory.all
+      else
+        #User.where(:id => 1)
+        @staffid= Profile.where(:user_id => current_user.id)
+        @typeent= TypeEnt.where(:description => "Annual Leave")
+        @s_histories = SHistory.where(:staff_id => @staffid, :type_ent => @typeent)
+      end
   end
 
   # GET /s_histories/1
@@ -14,7 +20,7 @@ class SHistoriesController < ApplicationController
 
   # GET /s_histories/new
   def new
-    @s_history = SHistory.new
+       @s_history = SHistory.new
   end
 
   # GET /s_histories/1/edit
