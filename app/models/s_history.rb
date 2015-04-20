@@ -4,3 +4,4 @@ class SHistory < ActiveRecord::Base
   
 
 end
+

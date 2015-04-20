@@ -1,16 +1,20 @@
 class SHistoriesController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :ensure_admin, :only => [:edit, :destroy]
   before_action :set_s_history, only: [:show, :edit, :update, :destroy]
   # GET /s_histories
   # GET /s_histories.json
   def index
       if current_user.admin? 
-        @s_histories = SHistory.all
+        @search = SHistorySearch.new(params[:search])
+        @s_histories = @search.scope
+
       else
-        #User.where(:id => 1)
         @staffid= Profile.where(:user_id => current_user.id)
         @typeent= TypeEnt.where(:description => "Annual Leave")
         @s_histories = SHistory.where(:staff_id => @staffid, :type_ent => @typeent)
       end
+
   end
 
   # GET /s_histories/1
@@ -68,6 +72,12 @@ class SHistoriesController < ApplicationController
     end
   end
   
+  def ensure_admin
+    unless current_user && current_user.admin?
+      render :text => "Access Error Message", :status => :unauthorized
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_s_history
@@ -76,6 +86,6 @@ class SHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def s_history_params
-      params.require(:s_history).permit(:staff_id, :hdate, :type_ent_id, :ndays, :observation)
+      params.require(:s_history).permit(:staff_id, :date, :type_ent_id, :ndays, :observation)
     end
 end

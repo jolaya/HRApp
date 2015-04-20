@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Staff Entries - Histories</h1>
+<% if current_user.admin? %>
+  <div class="row">
+    <div class="pull-right range-query">
+      <%= form_tag s_histories_path, method: :get do %>
+        <%= text_field_tag 'search[date_from]', @search.date_from %>
+        <%= text_field_tag 'search[date_to]', @search.date_to %>
+        <%= submit_tag 'Search', class: 'btn search-button' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <div class="media">
   <div class="media-body">
@@ -20,7 +31,7 @@
         <% @s_histories.each do |s_history| %>
           <tr>
             <td><%= s_history.staff.staff_number + ' - ' + s_history.staff.name + ',' + s_history.staff.surname %></td>
-            <td><%= s_history.hdate %></td>
+            <td><%= s_history.date %></td>
             <td><%= s_history.type_ent.description %></td>
             <td><%= s_history.ndays %></td>
             <td><%= s_history.observation %></td>
