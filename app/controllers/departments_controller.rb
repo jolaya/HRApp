@@ -61,6 +61,11 @@ class DepartmentsController < ApplicationController
     end
   end
 
+  def import
+    Department.import(params[:file])
+    redirect_to departments_path, notice: "Departments Add Successfully"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_department

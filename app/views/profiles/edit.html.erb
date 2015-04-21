@@ -1,6 +1,13 @@
+
 <h1>Editing Profile</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+
+<% if current_user.admin? %>
+    <%= link_to 'Back', profiles_path %>
+<% else %>
+    <%= link_to 'Back', root_path %>
+<% end %>
+

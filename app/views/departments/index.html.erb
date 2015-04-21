@@ -25,6 +25,13 @@
     </table>
   </div>
 </div>
+
 <br>
 
+<h3>Import Departments</h3>
+<%= form_tag import_departments_path, multipart: true do %>
+  <%= file_field_tag :file %> <br>
+  <%= submit_tag "Upload Departments" %>
+<% end %>
+<br>
 <%= link_to 'New Department', new_department_path %>

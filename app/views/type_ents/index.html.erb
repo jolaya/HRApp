@@ -28,5 +28,10 @@
   </div>
 </div>
 <br>
+<h3>Import Entry Types</h3>
+<%= form_tag import_type_ents_path, multipart: true do %>
+  <%= file_field_tag :file %> <br>
+  <%= submit_tag "Upload Entry Types" %>
+<% end %>
 
 <%= link_to 'New Entry Type', new_type_ent_path %>

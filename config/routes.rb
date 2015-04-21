@@ -10,11 +10,17 @@ Rails.application.routes.draw do
 
   resources :staffs
 
-  resources :type_ents
+  resources :type_ents do
+    collection {post :import }
+  end
 
-  resources :job_titles
+  resources :job_titles do
+    collection {post :import }
+  end
 
-  resources :departments
+  resources :departments do
+    collection {post :import }
+  end
   
   root to: 'welcome#index'
   

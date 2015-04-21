@@ -27,4 +27,10 @@
 </div>
 <br>
 
+<h3>Import Job Titles</h3>
+<%= form_tag import_job_titles_path, multipart: true do %>
+  <%= file_field_tag :file %> <br>
+  <%= submit_tag "Upload Job Titles" %>
+<% end %>
+<br>
 <%= link_to 'New Job title', new_job_title_path %>
