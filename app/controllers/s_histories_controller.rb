@@ -1,4 +1,5 @@
 class SHistoriesController < ApplicationController
+  require 'my_logger'
   before_filter :authenticate_user!
   before_filter :ensure_admin, :only => [:edit, :destroy]
   before_action :set_s_history, only: [:show, :edit, :update, :destroy]
@@ -39,7 +40,12 @@ class SHistoriesController < ApplicationController
 
     respond_to do |format|
       if @s_history.save
-        format.html { redirect_to @s_history, notice: 'S history was successfully created.' }
+        logger = MyLogger.instance
+        logger.logInformation("******** History *******")
+        logger.logInformation("New History entry: " + @s_history.staff.staff_number + ' - ' + @s_history.staff.name + ',' + @s_history.staff.surname)
+        logger.logInformation("entry type: " + @s_history.type_ent.description)
+
+        format.html { redirect_to @s_history, notice: 'Staff history entry was successfully created.' }
         format.json { render :show, status: :created, location: @s_history }
       else
         format.html { render :new }

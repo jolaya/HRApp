@@ -1,0 +1,12 @@
+******** History *******
+New History entry: 7848444 - xxxxx,yyyyy
+entry type: Annual Leave
+******** History *******
+New History entry: 7848444 - xxxxx,yyyyy
+entry type: Force Majeure
+******** History *******
+New History entry: 123456 - Jorge,Olaya
+entry type: Self Certified
+******** History *******
+New History entry: 2343244 - ssssss,ffffff
+entry type: Force Majeure
