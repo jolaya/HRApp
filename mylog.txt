@@ -10,3 +10,6 @@ entry type: Self Certified
 ******** History *******
 New History entry: 2343244 - ssssss,ffffff
 entry type: Force Majeure
+******** History *******
+New History entry: 2343244 - ssssss,ffffff
+entry type: Annual Leave
